@@ -1,10 +1,11 @@
-import createAction from "../src/createAction"
-import mapActions from "../src/mapActions"
+import createAction from '../src/createAction'
+import mapActions from '../src/mapActions'
 
 const TYPE = 'ACTION_TYPE'
 const ANOTHER_TYPE = 'ANOTHER_ACTION_TYPE'
 
-let action, anotherAction
+let action
+let anotherAction
 
 beforeEach(() => {
   action = createAction(TYPE, () => {})
@@ -15,7 +16,9 @@ test('should fail if provided action is an invalid value', () => {
   const invalidValues = [null, undefined, {}, {type: TYPE}]
 
   invalidValues.forEach(invalidAction => {
-    expect(() => mapActions(invalidAction)).toThrow('Action should be a function with a type property of type string')
+    expect(() => mapActions(invalidAction)).toThrow(
+      'Action should be a function with a type property of type string'
+    )
   })
 })
 

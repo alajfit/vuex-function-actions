@@ -1,10 +1,11 @@
-import createMutation from "../src/createMutation"
-import mapMutations from "../src/mapMutations"
+import createMutation from '../src/createMutation'
+import mapMutations from '../src/mapMutations'
 
 const TYPE = 'ACTION_TYPE'
 const ANOTHER_TYPE = 'ANOTHER_ACTION_TYPE'
 
-let mutation, anotherMutation
+let mutation
+let anotherMutation
 
 beforeEach(() => {
   mutation = createMutation(TYPE, () => {})
@@ -15,7 +16,9 @@ test('should fail if provided mutation is an invalid value', () => {
   const invalidValues = [null, undefined, {}, {type: TYPE}]
 
   invalidValues.forEach(invalidAction => {
-    expect(() => mapMutations(invalidAction)).toThrow('Mutation should be a function with a type property of type string')
+    expect(() => mapMutations(invalidAction)).toThrow(
+      'Mutation should be a function with a type property of type string'
+    )
   })
 })
 

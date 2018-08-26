@@ -10,7 +10,10 @@ export default function createMutation(type, mutation) {
     if (!state || !payload) {
       payload = state
 
-      invariant(payload == null || isObject(payload), 'When invoking the mutation the payload, if provided, should be an object')
+      invariant(
+        payload === undefined || isObject(payload),
+        'When invoking the mutation the payload, if provided, should be an object'
+      )
 
       return {
         type,

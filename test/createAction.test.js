@@ -2,7 +2,7 @@ import createAction from '../src/createAction'
 
 const TYPE = 'ACTION_TYPE'
 
-let actionFn 
+let actionFn
 
 beforeEach(() => {
   actionFn = () => {}
@@ -24,6 +24,8 @@ test('should fail if action is an invalid value', () => {
   const invalidValues = [null, undefined, 0, 'string', true]
 
   invalidValues.forEach(invalidAction => {
-    expect(() => createAction(TYPE, invalidAction)).toThrow('Expected action to be a function')
+    expect(() => createAction(TYPE, invalidAction)).toThrow(
+      'Expected action to be a function'
+    )
   })
 })
