@@ -1,0 +1,51 @@
+{
+  "name": "vuex-actions",
+  "version": "0.0.1",
+  "description": "Utilities for Vuex",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Simone Busoli <simone.busoli@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/simoneb/vuex-actions/issues"
+  },
+  "homepage": "https://github.com/simoneb/vuex-actions",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simoneb/vuex-actions.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "invariant": "^2.2.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.5.0",
+    "prettier": "^1.14.2",
+    "webpack": "^4.17.1",
+    "xo": "^0.22.0"
+  },
+  "peerDependencies": {
+    "vuex": "^3.0.1"    
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "extends": [
+      "unicorn-camelcase",
+      "jest-files"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "trailingComma": "none"
+  }
+}
