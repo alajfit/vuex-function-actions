@@ -1,12 +1,25 @@
 {
   "root": true,
-  "extends": ["eslint:recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
+  "env": {
+    "node": true
+  },
+  "plugins": [
+    "markdown"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
-    "prettier/prettier": ["warn", {
+    "prettier/prettier": [
+      "warn",
+      {
         "singleQuote": true,
         "bracketSpacing": false,
         "semi": false
-    }]
+      }
+    ]
   },
   "parserOptions": {
     "parser": "babel-eslint",

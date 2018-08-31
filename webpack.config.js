@@ -8,8 +8,8 @@ module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: `vuex-actions${production ? '.min' : ''}.js`,
-    library: 'VuexActions',
+    filename: `vuex-function-actions${production ? '.min' : ''}.js`,
+    library: 'VuexFunctionActions',
     libraryTarget: 'umd'
   },
   mode: production ? 'production' : 'development',
