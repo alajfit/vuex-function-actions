@@ -14,10 +14,16 @@ test('should attach `type` property to the action', () => {
   expect(action.type).toBe(TYPE)
 })
 
-test('should return the same function provided as input', () => {
+test('should return a function', () => {
   const action = createAction(TYPE, actionFn)
 
-  expect(action).toBe(actionFn)
+  expect(action).toEqual(expect.any(Function))
+})
+
+test('should not return the same function as input because it is patched', () => {
+  const action = createAction(TYPE, actionFn)
+
+  expect(action).not.toBe(actionFn)
 })
 
 test('should fail if action is an invalid value', () => {
@@ -28,4 +34,30 @@ test('should fail if action is an invalid value', () => {
       'Expected action to be a function'
     )
   })
+})
+
+test(`patch action context so it's possible to dispatch other action functions`, () => {
+  const actionArg = 'whatever'
+  const dispatch = jest.fn()
+
+  const action = createAction(TYPE, context =>
+    context.dispatch(createAction(TYPE, actionFn), actionArg)
+  )
+
+  action({dispatch})
+
+  expect(dispatch).toHaveBeenCalledWith(TYPE, actionArg)
+})
+
+test(`it should be still possible to dispatch plain string actions`, () => {
+  const actionArg = 'whatever'
+  const dispatch = jest.fn()
+
+  const action = createAction(TYPE, context =>
+    context.dispatch(TYPE, actionArg)
+  )
+
+  action({dispatch})
+
+  expect(dispatch).toHaveBeenCalledWith(TYPE, actionArg)
 })
