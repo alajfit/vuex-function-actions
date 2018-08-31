@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:jest/recommended", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": ["warn", {
+        "singleQuote": true,
+        "bracketSpacing": false,
+        "semi": false
+    }]
+  },
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  }
+}
