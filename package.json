@@ -1,6 +1,6 @@
 {
   "name": "vuex-function-actions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for Vuex",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -15,7 +15,8 @@
     "clean": "rimraf coverage dist es lib",
     "test": "jest",
     "lint": "eslint .",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepublishOnly": "run-s build"
   },
   "files": [
     "es",
